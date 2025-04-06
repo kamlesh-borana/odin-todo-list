@@ -1,7 +1,12 @@
-import { createProjectManager } from "./createProjectManager";
+import { ProjectManager } from "./ProjectManager";
+import "./styles/main.css";
 
-const projectManager = createProjectManager();
+console.log("Todo List");
 
-window.todo = projectManager;
+const projectManager = new ProjectManager();
 
-console.log(window.todo);
+console.log(projectManager);
+
+projectManager.addProject("Fitness");
+projectManager.addTodo({ title: "Walk" });
+

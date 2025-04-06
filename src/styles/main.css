@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.todo-app {
+  min-height: inherit;
+  background-color: papayawhip;
+  display: grid;
+  grid-template-columns: minmax(250px, 15%) 1fr;
+}
+
+.todo-app .sidebar {
+  background-color: rgb(253, 229, 192);
+  padding: 60px 15px 15px;
+}
+
+.todo-app .sidebar .add-task-cta-container .add-task-cta {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 16px;
+  padding: 8px;
+}
+
+.todo-app .sidebar .action-list-container {
+  margin-top: 6px;
+}
+
+.todo-app .sidebar .action-list-container .action-list button {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 16px;
+  padding: 8px;
+}
+
+.todo-app .sidebar .projects-container {
+  margin-top: 20px;
+}
+
+.todo-app .sidebar .projects-container h2 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.todo-app .sidebar .projects-container .project-list {
+  margin-top: 6px;
+}
+
+.todo-app .sidebar .projects-container .project-list button {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 16px;
+  padding: 8px;
+}
+
+.todo-app .sidebar .projects-container .add-project-cta-container {
+  margin-top: 6px;
+}
+
+.todo-app .sidebar .projects-container .add-project-cta-container button {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 16px;
+  padding: 8px;
+}
+
+.todo-app .main-view {
+  padding-top: 60px;
+}
+
+.todo-app .main-view .view-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.todo-app .main-view .view-container .heading {
+  font-size: 32px;
+}
+
+.todo-app .main-view .view-container .todo-list-container {
+  margin-top: 20px;
+}
+
+.todo-app .main-view .view-container .todo-list-container .todo-list-item {
+  border-bottom: 1px solid burlywood;
+}
+
+.todo-app .main-view .view-container .todo-list-container .todo-list button {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 16px;
+  padding: 8px;
+}
+
+.todo-app
+  .main-view
+  .view-container
+  .todo-list-container
+  .add-task-cta-container {
+  margin-top: 6px;
+}
+
+.todo-app
+  .main-view
+  .view-container
+  .todo-list-container
+  .add-task-cta-container
+  button {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 16px;
+  padding: 8px;
+}

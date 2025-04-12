@@ -1,12 +1,19 @@
-import { ProjectManager } from "./ProjectManager";
+// import { ProjectManager } from "./ProjectManager";
 import "./styles/main.css";
+import { UIControls } from "./UIControls";
 
 console.log("Todo List");
 
-const projectManager = new ProjectManager();
+// const projectManager = new ProjectManager();
 
-console.log(projectManager);
+// console.log(projectManager);
 
-projectManager.addProject("Fitness");
-projectManager.addTodo({ title: "Walk" });
+const uiControls = new UIControls();
 
+// uiControls.renderActionList();
+// uiControls.renderMyProjectsList();
+// uiControls.renderMainView();
+
+uiControls.renderApp();
+
+// Check if passed it and title/name exist in the same todo/project

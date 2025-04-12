@@ -26,6 +26,25 @@ export class ProjectManager {
         `Failed to create default project ${DEFAULT_PROJECT_NAME}: ${error.message}`
       );
     }
+    this.#projects.default.addTodo({ title: "Test Todo1 Task" });
+    this.#projects.default.addTodo({
+      title: "Test Todo2 Task",
+      dueDate: new Date("2025-04-11"),
+      priority: "p0",
+    });
+    this.#projects.default.addTodo({ title: "Test Todo3 Task" });
+    this.#projects.myProjects.push(
+      new Project({ name: "Fitness", todos: [] }),
+      new Project({ name: "Work", todos: [] })
+    );
+  }
+
+  getDefaultProject() {
+    return this.#projects.default.getProject();
+  }
+
+  getMyProjects() {
+    return this.#projects.myProjects.map((project) => project.getProject());
   }
 
   /**

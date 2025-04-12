@@ -185,9 +185,14 @@ export class Project {
   }
 
   getProject() {
-    return JSON.parse(
-      JSON.stringify({ id: this.#id, name: this.#name, todos: this.#todos })
+    const projectData = JSON.parse(
+      JSON.stringify({ id: this.#id, name: this.#name })
     );
+    const todosData = this.#todos.map((todo) => todo.getTodo());
+    return { ...projectData, todos: todosData };
+    // return JSON.parse(
+    //   JSON.stringify({ id: this.#id, name: this.#name, todos: this.#todos })
+    // );
   }
 
   getProjectId() {

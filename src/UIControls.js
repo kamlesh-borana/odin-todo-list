@@ -186,6 +186,7 @@ export class UIControls {
       todoCompletedCheckbox.addEventListener("change", (event) => {
         this.#projectManager.toggleTodoCompleteStatus(todo.id, project.id);
         // todoItem.classList.toggle("completed");
+        this.#projectManager.storeProjects();
         this.renderApp();
       });
 
@@ -215,6 +216,7 @@ export class UIControls {
           .findProject(project.id)
           .deleteTodo(event.target.closest("button.delete").dataset.todoId);
 
+        this.#projectManager.storeProjects();
         this.renderApp();
       });
 
@@ -289,6 +291,7 @@ export class UIControls {
         this.#currentOperation.id = newProject.id;
       }
 
+      this.#projectManager.storeProjects();
       projectModal.close();
       this.renderApp();
     });
@@ -439,6 +442,7 @@ export class UIControls {
       this.#currentOperation.type = "projectView";
       this.#currentOperation.id = projectId;
 
+      this.#projectManager.storeProjects();
       todoModal.close();
       this.renderApp();
     });

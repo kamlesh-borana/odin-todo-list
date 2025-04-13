@@ -1,5 +1,5 @@
 import { Project } from "./Project";
-import { Todo } from "./Todo";
+// import { Todo } from "./Todo";
 import { DEFAULT_PROJECT_NAME } from "./utils/constants";
 
 /**
@@ -18,30 +18,65 @@ export class ProjectManager {
    */
   constructor() {
     try {
-      this.#projects.default = new Project({
-        name: DEFAULT_PROJECT_NAME,
-        todos: [],
-      });
+      const storedProjects = this.getProjects();
+      if (storedProjects) {
+        this.#projects.default = new Project(storedProjects.default);
+        this.#projects.myProjects = storedProjects.myProjects.map(
+          (project) => new Project(project)
+        );
+      } else {
+        this.#projects.default = new Project({
+          name: DEFAULT_PROJECT_NAME,
+          todos: [],
+        });
+      }
     } catch (error) {
       throw new Error(
         `Failed to create default project ${DEFAULT_PROJECT_NAME}: ${error.message}`
       );
     }
-    this.#projects.default.addTodo({ title: "Test Todo1 Task" });
-    this.#projects.default.addTodo({
-      title: "Test Todo2 Task",
-      dueDate: new Date("2025-04-11"),
-      priority: "p0",
-    });
-    this.#projects.default.addTodo({ title: "Test Todo3 Task" });
-    this.#projects.myProjects.push(
-      new Project({
-        name: "Fitness",
-        todos: [new Todo({ title: "Gym" }).getTodo()],
-      }),
-      new Project({
-        name: "Work",
-        todos: [new Todo({ title: "Office" }).getTodo()],
+    // this.#projects.default.addTodo({ title: "Test Todo1 Task" });
+    // this.#projects.default.addTodo({
+    //   title: "Test Todo2 Task",
+    //   dueDate: new Date("2025-04-11"),
+    //   priority: "p0",
+    // });
+    // this.#projects.default.addTodo({ title: "Test Todo3 Task" });
+    // this.#projects.myProjects.push(
+    //   new Project({
+    //     name: "Fitness",
+    //     todos: [new Todo({ title: "Gym" }).getTodo()],
+    //   }),
+    //   new Project({
+    //     name: "Work",
+    //     todos: [new Todo({ title: "Office" }).getTodo()],
+    //   })
+    // );
+
+    this.storeProjects();
+  }
+
+  getProjects() {
+    const storedProjects = JSON.parse(
+      localStorage.getItem("storedProjects"),
+      (key, value) => {
+        if (key === "dueDate") {
+          return value && new Date(value);
+        }
+        return value;
+      }
+    );
+    return storedProjects;
+  }
+
+  storeProjects() {
+    localStorage.setItem(
+      "storedProjects",
+      JSON.stringify({
+        default: this.#projects.default.getProject(),
+        myProjects: this.#projects.myProjects.map((project) =>
+          project.getProject()
+        ),
       })
     );
   }

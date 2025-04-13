@@ -1,4 +1,5 @@
 import { Project } from "./Project";
+import { Todo } from "./Todo";
 import { DEFAULT_PROJECT_NAME } from "./utils/constants";
 
 /**
@@ -34,8 +35,14 @@ export class ProjectManager {
     });
     this.#projects.default.addTodo({ title: "Test Todo3 Task" });
     this.#projects.myProjects.push(
-      new Project({ name: "Fitness", todos: [] }),
-      new Project({ name: "Work", todos: [] })
+      new Project({
+        name: "Fitness",
+        todos: [new Todo({ title: "Gym" }).getTodo()],
+      }),
+      new Project({
+        name: "Work",
+        todos: [new Todo({ title: "Office" }).getTodo()],
+      })
     );
   }
 
@@ -94,6 +101,8 @@ export class ProjectManager {
       const newProject = new Project({ name: projectName, todos: [] });
 
       this.#projects.myProjects = [...this.#projects.myProjects, newProject];
+
+      return newProject.getProject();
     } catch (error) {
       throw new Error(`Failed to add project: ${error.message}`);
     }

@@ -1,18 +1,7 @@
-// import { ProjectManager } from "./ProjectManager";
 import "./styles/main.css";
 import { UIControls } from "./UIControls";
 
-console.log("Todo List");
-
-// const projectManager = new ProjectManager();
-
-// console.log(projectManager);
-
 const uiControls = new UIControls();
-
-// uiControls.renderActionList();
-// uiControls.renderMyProjectsList();
-// uiControls.renderMainView();
 
 uiControls.renderApp();
 

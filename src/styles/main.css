@@ -37,6 +37,14 @@ body {
   margin-top: 6px;
 }
 
+.todo-app
+  .sidebar
+  .action-list-container
+  .action-list
+  .action-list-item.active {
+  background-color: rgb(255, 209, 176);
+}
+
 .todo-app .sidebar .action-list-container .action-list button {
   width: 100%;
   background: none;
@@ -57,6 +65,10 @@ body {
 
 .todo-app .sidebar .projects-container .project-list {
   margin-top: 6px;
+}
+
+.todo-app .sidebar .projects-container .project-list .project-list-item.active {
+  background-color: rgb(255, 209, 176);
 }
 
 .todo-app .sidebar .projects-container .project-list button {
@@ -101,6 +113,24 @@ body {
 
 .todo-app .main-view .view-container .todo-list-container .todo-list-item {
   border-bottom: 1px solid burlywood;
+}
+
+.todo-app
+  .main-view
+  .view-container
+  .todo-list-container
+  .todo-list-item.completed {
+  text-decoration: line-through;
+  color: rgb(116, 116, 116);
+}
+
+.todo-app
+  .main-view
+  .view-container
+  .todo-list-container
+  .todo-list-item.completed
+  button.todo {
+  color: rgb(116, 116, 116);
 }
 
 .todo-app
@@ -257,4 +287,167 @@ body {
   text-align: left;
   font-size: 16px;
   padding: 8px;
+}
+
+dialog {
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  margin: auto auto;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+dialog form {
+  display: flex;
+  flex-direction: column;
+}
+
+dialog label {
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+dialog input#projectName {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+dialog .modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+dialog .modal-footer button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #eee;
+  cursor: pointer;
+}
+
+dialog .modal-footer button:hover {
+  background-color: #ddd;
+}
+
+dialog .modal-footer button.primary {
+  background-color: #007bff;
+  color: white;
+}
+
+dialog .modal-footer button.primary:hover {
+  background-color: #0056b3;
+}
+/* 
+#openModalBtn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+#openModalBtn:hover {
+  background-color: #0056b3;
+} */
+
+#todoModal {
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 44ch;
+}
+
+#todoModal::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#todoModal h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+#todoModal div {
+  margin-bottom: 15px;
+}
+
+#todoModal div.completed-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#todoModal div.completed-status input {
+  width: 16px;
+  height: 16px;
+}
+
+#todoModal div.completed-status label {
+  margin: 0;
+  width: 100%;
+}
+
+#todoModal label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+  font-size: 16px;
+}
+
+#todoModal input[type="text"],
+#todoModal input[type="date"],
+#todoModal textarea,
+#todoModal select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+#todoModal textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+/* #todoModal select {
+  height: 36px;
+} */
+
+#todoModal .dialog-button {
+  text-align: right;
+}
+
+#todoModal .dialog-button button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+#todoModal .dialog-button button#cancelBtn {
+  background-color: #f44336;
+  color: white;
+}
+
+#todoModal .dialog-button button#submitBtn {
+  background-color: #4caf50;
+  color: white;
+}
+
+#todoModal .dialog-button button:hover {
+  opacity: 0.8;
 }

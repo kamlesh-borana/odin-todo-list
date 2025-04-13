@@ -146,7 +146,8 @@ export function createElement(tagName, id, classes, attributes) {
       createdElement.classList.add(classes.trim());
     } else {
       if (Array.isArray(classes)) {
-        createdElement.classList.add(...classes);
+        const classesToAdd = classes.filter((className) => className.trim());
+        createdElement.classList.add(...classesToAdd);
       }
     }
   }
@@ -160,4 +161,13 @@ export function createElement(tagName, id, classes, attributes) {
   }
 
   return createdElement;
+}
+
+export function formatDate(dateString) {
+  const date = new Date(dateString);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0"); // Months are 0-indexed
+  const day = String(date.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
 }
